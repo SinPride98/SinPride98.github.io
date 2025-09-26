@@ -1,38 +1,84 @@
 body {
-  background-color: #0f172a; /* blu-nero */
+  background-color: #0f172a;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 #console {
   font-family: "Fira Code", monospace;
-  color: #e2e8f0; /* grigio chiaro */
+  color: #e2e8f0;
   width: 80%;
   max-width: 900px;
   margin: 60px auto;
   font-size: 16px;
   line-height: 1.6;
+  position: relative;
+  z-index: 1;
 }
 
 /* link */
 a {
-  color: #60a5fa; /* blu acceso */
+  color: #60a5fa;
   text-decoration: none;
   transition: color 0.3s;
 }
 a:hover {
   color: #93c5fd;
 }
+.cascade-line {
+  animation: cascade 8s linear infinite;
+  display: block;
+  padding: 0 5px;
+  will-change: transform;
+}
 
-/* colori stile terminale */
-#a { color: #38bdf8; }  /* path */
-#b { color: #f472b6; }  /* comandi */
-#c { color: #a3e635; }  /* output valori */
-#k { animation: blinkText 1s infinite; }
-#op { color: #94a3b8; } /* grigio spento */
+/* flussi laterali */
+#left-stream, #right-stream {
+  position: fixed;
+  top: 0;
+  width: 60px;
+  height: 100vh;
+  font-family: "Fira Code", monospace;
+  font-size: 14px;
+  color: #00ff99;
+  overflow: hidden;
+  white-space: pre;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.15;
+  text-shadow: 0 0 5px #00ff99, 0 0 10px #00ff99;
+}
+#left-stream, #right-stream {
+  color: #00ffcc;
+  opacity: 0.4;
+  text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+}
 
-/* animazione blink */
-@keyframes blinkText {
-  0%, 49% { opacity: 1; }
-  50%, 100% { opacity: 0; }
+#left-stream {
+  left: 0;
+  text-align: right;
+}
+
+#right-stream {
+  right: 0;
+  text-align: left;
+}
+
+/* animazione numeri */
+.cascade-line {
+  animation: cascade 6s linear infinite;
+  display: block;
+  padding: 0 5px;
+}
+
+@keyframes cascade {
+  0% { transform: translateY(-100%); opacity: 0.8; }
+  100% { transform: translateY(100vh); opacity: 0.2; }
+}
+
+.cascade-line {
+  animation: cascade 8s linear infinite;
+  display: block;
+  padding: 0 5px;
 }

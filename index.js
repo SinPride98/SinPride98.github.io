@@ -108,49 +108,74 @@ function copyToClipboard(element) {
     document.execCommand("copy");
     $temp.remove();
 }*/
-var Typer = {
-    text: "",
-    index: 0,
-    speed: 4,
-    file: "Michael.txt",
+const Typer = {
+  text: "",
+  index: 0,
+  speed: 4,
+  file: "Michael.txt",
+  cursorVisible: true,
 
-    init: function () {
-        // carica il file di testo
-        $.get(Typer.file, function (data) {
-            Typer.text = data;
-            Typer.start();
-        });
-    },
+  init: function () {
+    $.get(Typer.file)
+      .done(function (data) {
+        Typer.text = data;
+        Typer.start();
+        Typer.cursorBlink();
+      })
+      .fail(function () {
+        $("#console").html("❌ Impossibile caricare il file: " + Typer.file);
+      });
+  },
 
-    start: function () {
-        // avvia il timer di scrittura
-        Typer.timer = setInterval(Typer.type, 30);
-    },
+  start: function () {
+    Typer.timer = setInterval(Typer.type, 30);
+  },
 
-    type: function () {
-        if (Typer.index > Typer.text.length) {
-            clearInterval(Typer.timer);
-            return;
-        }
-
-        var text = Typer.text.substring(0, Typer.index);
-        var rtn = new RegExp("\n", "g");
-
-        // trasforma newline + link cliccabili
-        $("#console").html(linkify(text.replace(rtn, "<br/>")));
-
-        Typer.index += Typer.speed;
-        window.scrollBy(0, 50);
+  type: function () {
+    if (Typer.index > Typer.text.length) {
+      clearInterval(Typer.timer);
+      return;
     }
+
+    const text = Typer.text.substring(0, Typer.index);
+    const formatted = linkify(text.replace(/\n/g, "<br/>"));
+    const cursor = Typer.cursorVisible ? '<span id="k">|</span>' : "";
+    $("#console").html(formatted + cursor);
+
+    Typer.index += Typer.speed;
+    window.scrollBy(0, 50);
+  },
+
+  cursorBlink: function () {
+    setInterval(() => {
+      Typer.cursorVisible = !Typer.cursorVisible;
+    }, 500);
+  }
 };
 
-// 🔗 funzione che rende cliccabili i link
 function linkify(text) {
-    let urlRegex = /(https?:\/\/[^\s]+)/g;
-    return text.replace(urlRegex, function (url) {
-        return '<a href="' + url + '" target="_blank">' + url + '</a>';
-    });
+  const urlRegex = /(https?:\/\/[^\s]+)/g;
+  return text.replace(urlRegex, url => `<a href="${url}" target="_blank">${url}</a>`);
 }
 
-// avvia subito
+function generateCascade(streamId) {
+  const stream = document.getElementById(streamId);
+  stream.innerHTML = "";
+
+  const chars = "0123456789ABCDEF@#$%&";
+  for (let i = 0; i < 60; i++) {
+    const line = document.createElement("div");
+    line.className = "cascade-line";
+    line.textContent = Array.from({ length: 10 }, () =>
+      chars[Math.floor(Math.random() * chars.length)]
+    ).join(" ");
+    line.style.animationDelay = `${Math.random() * 5}s`;
+    stream.appendChild(line);
+  }
+}
+// Aggiorna ogni 1000ms per maggiore fluidità
+setInterval(() => {
+  generateCascade("left-stream");
+  generateCascade("right-stream");
+}, 3000); // ogni 3 secondi
 Typer.init();
