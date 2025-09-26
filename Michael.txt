@@ -15,25 +15,23 @@ Type [cmds] to see all of the available commands.
 <span id="a">\\Root\ATL-srg\Michael&gt;</span><span id="b">About me</span>
 Receiving submited information...
 <span style="color: transparent">CEEFHNTAKSCDFEETEIGTATIERFEDNSPNOACTSHEONESILNFNKATTSEAA</span>
-Hello, I'm Giuseppe Genovese. Currently, learning Typescript, Python and other Cloud stuff... (to be T-shaped)
+Hello, I'm Michael Ranieri. Currently, learning Scala, Python and other programming languages...
 I'd like to help companies to improve herself by my work!
-<span id="c"><a href="https://www.linkedin.com/in/geno52/" target="_blank">My LinkedIn profile</a></span>
+<span id="c"><a href="https://www.linkedin.com/in/michael-ranieri-aa9025173?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B0otcVVkQRCSNZPBjWKzm8Q%3D%3D" target="_blank">My LinkedIn profile</a></span>
 <span id="c"><a href="https://github.com/Michaelranieri98" target="_blank">My Github profile</a></span>
 Want to know me more? then let us be friends!
 &nbsp;
 <span id="a">\\Root\ATL-srg\Michael&gt;</span><span id="b">view prof.json</span>
 {
-    Job: "<span id="c">Jr Cloud Specialist </span>",
-    English: "<span id="c">B2</span>",
-    Certifications: "<span id="c">AWS Certified Cloud Practitioner</span>",
-    Hobby: "<span id="c">Metal Detecting and 3D Printing</span>",
+    English: "<span id="c">B1</span>",
+    Hobby: "<span id="c">Workout,Psychology,Travel and Gaming</span>",
 }
 &nbsp;
 <span id="a">\\Root\ATL-srg\Michael&gt;</span><span id="b">view links.json</span>
 {
     Discord: "<span id="c">(ask me later)</span>",
     GitHub: "<span id="c">Michaelranieri98</span>",
-    Email: "<span id="c">giuseppe2003genovese@gmail.com</span>"
+    Email: "<span id="c">michael.ranieri89@gmail.com</span>"
 }
 &nbsp;
 <span id="a">\\Root\ATL-srg\Michael&gt;</span><span id="b">logout</span>
