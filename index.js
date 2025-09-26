@@ -98,7 +98,7 @@ function replaceUrls(text) {
 }
 
 Typer.speed=4;
-Typer.file="Tropilax.txt";
+Typer.file="Michael.txt";
 Typer.init();
  
 var timer = setInterval("t();", 30);
