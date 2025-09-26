@@ -1,4 +1,4 @@
-var Typer = {
+/*var Typer = {
     text: null,
     accessCountimer: null,
     index: 0,
@@ -107,4 +107,50 @@ function copyToClipboard(element) {
     $temp.val($(element).text()).select();
     document.execCommand("copy");
     $temp.remove();
+}*/
+var Typer = {
+    text: "",
+    index: 0,
+    speed: 4,
+    file: "Michael.txt",
+
+    init: function () {
+        // carica il file di testo
+        $.get(Typer.file, function (data) {
+            Typer.text = data;
+            Typer.start();
+        });
+    },
+
+    start: function () {
+        // avvia il timer di scrittura
+        Typer.timer = setInterval(Typer.type, 30);
+    },
+
+    type: function () {
+        if (Typer.index > Typer.text.length) {
+            clearInterval(Typer.timer);
+            return;
+        }
+
+        var text = Typer.text.substring(0, Typer.index);
+        var rtn = new RegExp("\n", "g");
+
+        // trasforma newline + link cliccabili
+        $("#console").html(linkify(text.replace(rtn, "<br/>")));
+
+        Typer.index += Typer.speed;
+        window.scrollBy(0, 50);
+    }
+};
+
+// 🔗 funzione che rende cliccabili i link
+function linkify(text) {
+    let urlRegex = /(https?:\/\/[^\s]+)/g;
+    return text.replace(urlRegex, function (url) {
+        return '<a href="' + url + '" target="_blank">' + url + '</a>';
+    });
 }
+
+// avvia subito
+Typer.init();
