@@ -7,10 +7,10 @@ Press [ESC] to exit
 
 \Root\ATL-srg> login Michael
 
-Enter Your Username: Michaelranieri98
+Enter Your Username: SinPride98
 Enter Your Password: ****************************
 
-Login session was successful. Welcome, Michaelranieri98!
+Login session was successful. Welcome, SinPride98!
 Type [cmds] to see all of the available commands.
 
 
@@ -21,7 +21,7 @@ Hello, I'm Michael Ranieri. Currently, learning Scala, Python and other programm
 I'd like to help companies to improve herself by my work!
 
 My LinkedIn profile: https://www.linkedin.com/in/michael-ranieri-aa9025173
-My Github profile: https://github.com/Michaelranieri98
+My Github profile: https://github.com/SinPride98
 
 Want to know me more? then let us be friends!
 
@@ -36,7 +36,7 @@ Want to know me more? then let us be friends!
 \Root\ATL-srg\Michael> view links.json
 {
     Discord: "(ask me later)",
-    GitHub: "Michaelranieri98",
+    GitHub: "SinPride98",
     Email: "michael.ranieri89@gmail.com"
 }
 
