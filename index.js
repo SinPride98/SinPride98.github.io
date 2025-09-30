@@ -154,7 +154,7 @@ const Typer = {
 };
 
 function linkify(text) {
-  const urlRegex = /(https?:\/\/[^\s]+)/g;
+  const urlRegex = /(https?:\/\/[^\s<>"']+)/g;
   return text.replace(urlRegex, url => `<a href="${url}" target="_blank">${url}</a>`);
 }
 
